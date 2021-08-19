@@ -13,6 +13,11 @@ spec:
         - name: mysql-cred
           mountPath: "/projected-volume"
           readOnly: true
+        - name: mt
+          mountPath: "/projected-mt"
+          readOnly: true
+        - name: cf
+          mountPath: "/projected-cf"
   volumes:
     - name: mysql-cred
       projected:
@@ -21,3 +26,13 @@ spec:
               name: user
           - secret:
               name: pass
+    - name: mt
+      projected:
+        sources:
+          - secret:
+              name: mysecret
+    - name: cf
+      projected:
+        sources:
+          - configMap:
+              name: cf

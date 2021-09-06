@@ -5,11 +5,11 @@ metadata:
   labels:
     app: mysql
 data:
-  master.cnf: |
-    # 主节点MySQL的配置文件
+  primary.cnf: |
+    # Apply this config only on the primary.
     [mysqld]
     log-bin
-  slave.cnf: |
-    # 从节点MySQL的配置文件
+  replica.cnf: |
+    # Apply this config only on replicas.
     [mysqld]
     super-read-only

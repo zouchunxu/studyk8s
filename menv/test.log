@@ -1,0 +1,9 @@
+my-cluster-kafka-brokers
+
+admin
+prom-operator
+
+// es 密码
+kubectl get secret quickstart-es-elastic-user -o=jsonpath='{.data.elastic}' | base64 --decode; echo
+
+kubectl create secret generic jaeger-secret --from-literal=ES_PASSWORD=17w6s8jC7zVQk915Hj35Ojpw --from-literal=ES_USERNAME=elastic
